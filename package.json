@@ -1,0 +1,40 @@
+{
+  "name": "lb-accordion",
+  "version": "1.0.1",
+  "description": "A React Component that will return an accordion component",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "npm run build:clean && babel src -d lib",
+    "build:clean": "rm -rf lib/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlindebro/lb-accordion.git"
+  },
+  "keywords": [
+    "React",
+    "css",
+    "grid",
+    "grid",
+    "jsx"
+  ],
+  "author": "jlindebro@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlindebro/lb-accordion/issues"
+  },
+  "homepage": "https://github.com/jlindebro/lb-accordion#readme",
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  },
+  "dependencies": {}
+}

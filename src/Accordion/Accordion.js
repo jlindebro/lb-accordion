@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 import FlexView from 'lb-flex-view'
 
 export class Accordion extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super()
     const setSelected = []
-    if(props.selectedIndexes.length > 0) {
+    if (props.selectedIndexes.length > 0) {
       props.selectedIndexes.forEach(value => {
         setSelected.push(value)
       })
     }
     this.state = {
       selectedIndexes: setSelected,
-      childrenCount: React.Children.count(props.children),
+      childrenCount: React.Children.count(props.children)
     }
     this.renderChildren = this.renderChildren.bind(this)
     this.itemOnClick = this.itemOnClick.bind(this)
@@ -22,33 +22,33 @@ export class Accordion extends React.Component {
         multi: {
           maxHeight: 'unset',
           minHeight: 'unset',
-          height: 'auto',
-        },
+          height: 'auto'
+        }
       }
     } else {
       this.styles = {
-        multi: {},
+        multi: {}
       }
     }
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.selectedIndexes !== this.props.selectedIndexes) {
       const arr = nextProps.selectedIndexes || []
       this.setState({
-        selectedIndexes: arr,
+        selectedIndexes: arr
       })
     }
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate (nextProps, nextState) {
     if (nextState.selectedIndexes !== this.state.selectedIndexes) {
       this.props.onChange({
-        selectedIndexes: nextState.selectedIndexes,
+        selectedIndexes: nextState.selectedIndexes
       })
     }
   }
 
-  itemOnClick(data) {
+  itemOnClick (data) {
     let arr = []
     if (this.props.multiSelect) {
       // Load current collection
@@ -71,11 +71,11 @@ export class Accordion extends React.Component {
 
     // Execute
     this.setState({
-      selectedIndexes: arr,
+      selectedIndexes: arr
     })
   }
 
-  renderChildren() {
+  renderChildren () {
     return React.Children.map(this.props.children, (child, i) => {
       if (
         typeof child.type.defaultProps === 'undefined' ||
@@ -109,11 +109,11 @@ export class Accordion extends React.Component {
         titleHeight: this.props.titleHeight,
         itemBodyHeight: this.props.itemBodyHeight,
         speed: this.props.speed,
-        multiSelect: this.props.multiSelect,
+        multiSelect: this.props.multiSelect
       })
     })
   }
-  render() {
+  render () {
     return (
       <FlexView
         style={{
@@ -121,19 +121,19 @@ export class Accordion extends React.Component {
             flexDirection: 'column',
             maxHeight: `${Math.max(
               this.props.titleHeight * (this.state.childrenCount - 1) +
-                (this.props.titleHeight + this.props.itemBodyHeight),
+                (this.props.titleHeight + this.props.itemBodyHeight)
             )}px`,
             minHeight: `${Math.max(
               this.props.titleHeight * (this.state.childrenCount - 1) +
-                (this.props.titleHeight + this.props.itemBodyHeight),
+                (this.props.titleHeight + this.props.itemBodyHeight)
             )}px`,
             height: `${Math.max(
               this.props.titleHeight * (this.state.childrenCount - 1) +
-                (this.props.titleHeight + this.props.itemBodyHeight),
-            )}px`,
+                (this.props.titleHeight + this.props.itemBodyHeight)
+            )}px`
           },
           ...this.styles.multi,
-          ...this.props.style,
+          ...this.props.style
         }}
       >
         {this.renderChildren()}
@@ -147,7 +147,7 @@ Accordion.defaultProps = {
   itemBodyHeight: 200,
   titleHeight: 65,
   onChange: () => {},
-  multiSelect: false,
+  multiSelect: false
 }
 Accordion.propTypes = {
   /**
@@ -192,7 +192,7 @@ Accordion.propTypes = {
    * same time and the accordions total height will change according
    * to how many items are opened.
    */
-  multiSelect: PropTypes.bool,
+  multiSelect: PropTypes.bool
 }
 
 export default Accordion

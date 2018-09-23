@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 class AccordionItem extends React.Component {
-  constructor() {
+  constructor () {
     super()
     this.renderChildren = this.renderChildren.bind(this)
   }
-  renderChildren() {
+  renderChildren () {
     return React.Children.map(this.props.children, (child, i) => {
       let props = {}
       let childName = ''
@@ -23,7 +23,7 @@ class AccordionItem extends React.Component {
           titleHeight: this.props.titleHeight,
           listId: this.props.listId,
           multiSelect: this.props.multiSelect,
-          isSelected: this.props.selected,
+          isSelected: this.props.selected
         }
       }
       // Item Body part
@@ -36,7 +36,7 @@ class AccordionItem extends React.Component {
           MozTransition: `height ${speed}s ${transitionType}`,
           MsTransition: `height ${speed}s ${transitionType}`,
           OTransition: `height ${speed}s ${transitionType}`,
-          transition: `height ${speed}s ${transitionType}`,
+          transition: `height ${speed}s ${transitionType}`
         }
 
         let bodyHeight = 0
@@ -62,27 +62,27 @@ class AccordionItem extends React.Component {
           multiSelect: this.props.multiSelect,
           isSelected: this.props.selected,
           animationStyles,
-          bodyHeight,
+          bodyHeight
         }
       }
 
       return React.cloneElement(child, {
         key: ['accordionItemChildren', i].join('-'),
-        ...props,
+        ...props
       })
     })
   }
 
-  render() {
+  render () {
     return (
       <div
         style={{
           ...{
             flexDirection: 'column',
             width: '100%',
-            backgroundColor: 'white',
+            backgroundColor: 'white'
           },
-          ...this.props.style,
+          ...this.props.style
         }}
       >
         {this.renderChildren()}
@@ -98,7 +98,7 @@ AccordionItem.defaultProps = {
   speed: 0.2,
   transitionType: 'linear',
   itemBodyHeight: 200,
-  titleHeight: 65,
+  titleHeight: 65
 }
 AccordionItem.propTypes = {
   /**
@@ -151,7 +151,7 @@ AccordionItem.propTypes = {
    * to how many items are opened. This prop will be set by accordion
    * component. (System use only).
    */
-  multiSelect: PropTypes.bool,
+  multiSelect: PropTypes.bool
 }
 
 export default AccordionItem

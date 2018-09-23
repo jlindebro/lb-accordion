@@ -8,13 +8,13 @@ const AccordionItemBody = ({ children, style, bodyHeight, animationStyles }) => 
       style={{
         ...{
           flexDirection: 'row',
-          overflow: 'hidden',
+          overflow: 'hidden'
         },
         ...style,
         ...{
-          height: bodyHeight,
+          height: bodyHeight
         },
-        ...animationStyles,
+        ...animationStyles
       }}
     >
       {children}
@@ -23,7 +23,7 @@ const AccordionItemBody = ({ children, style, bodyHeight, animationStyles }) => 
 )
 AccordionItemBody.defaultProps = {
   systemName: 'AccordionItemBody',
-  bodyHeight: 0,
+  bodyHeight: 0
 }
 AccordionItemBody.propTypes = {
   /**
@@ -55,8 +55,8 @@ AccordionItemBody.propTypes = {
     PropTypes.array,
     PropTypes.element,
     PropTypes.string,
-    PropTypes.number,
-  ]),
+    PropTypes.number
+  ])
 }
 
 export default AccordionItemBody

@@ -11,38 +11,38 @@ describe('Accordion', () => {
     wrapper = mount(
       <Accordion itemBodyHeight={300} speed={0.4}>
         <AccordionItem>
-          <AccordionItemTitle title="Foo bar" />
+          <AccordionItemTitle title='Foo bar' />
           <AccordionItemBody />
         </AccordionItem>
-      </Accordion>,
+      </Accordion>
     )
     wrapper2 = mount(
       <Accordion itemBodyHeight={100} speed={0.6} selectedIndexes={[1]}>
         <AccordionItem>
-          <AccordionItemTitle title="Foo" />
+          <AccordionItemTitle title='Foo' />
           <AccordionItemBody />
         </AccordionItem>
         <AccordionItem>
-          <AccordionItemTitle title="Bar" />
+          <AccordionItemTitle title='Bar' />
           <AccordionItemBody />
         </AccordionItem>
-      </Accordion>,
+      </Accordion>
     )
     wrapper3 = mount(
       <Accordion itemBodyHeight={100} multiSelect selectedIndexes={[0, 2]}>
         <AccordionItem>
-          <AccordionItemTitle title="Foo" />
+          <AccordionItemTitle title='Foo' />
           <AccordionItemBody />
         </AccordionItem>
         <AccordionItem>
-          <AccordionItemTitle title="Bar" />
+          <AccordionItemTitle title='Bar' />
           <AccordionItemBody />
         </AccordionItem>
         <AccordionItem>
-          <AccordionItemTitle title="Foo" />
+          <AccordionItemTitle title='Foo' />
           <AccordionItemBody />
         </AccordionItem>
-      </Accordion>,
+      </Accordion>
     )
   })
 
@@ -59,13 +59,13 @@ describe('Accordion', () => {
       wrapper2
         .find(AccordionItemBody)
         .first()
-        .prop('bodyHeight'),
+        .prop('bodyHeight')
     ).toBe(0)
     expect(
       wrapper2
         .find(AccordionItemBody)
         .last()
-        .prop('bodyHeight'),
+        .prop('bodyHeight')
     ).toBe(100)
   })
   it('should be able to multi selected children', () => {
@@ -73,13 +73,13 @@ describe('Accordion', () => {
       wrapper3
         .find(AccordionItemBody)
         .first()
-        .prop('bodyHeight'),
+        .prop('bodyHeight')
     ).toBe(100)
     expect(
       wrapper3
         .find(AccordionItemBody)
         .last()
-        .prop('bodyHeight'),
+        .prop('bodyHeight')
     ).toBe(100)
   })
 })

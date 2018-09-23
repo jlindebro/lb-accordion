@@ -4,7 +4,7 @@ import Icon from '../Icon'
 import FlexView from '../layoutComponents/FlexView'
 
 class AccordionItemTitle extends React.Component {
-  render() {
+  render () {
     let arrow = 'down'
     let fill = ''
     if (this.props.isSelected) {
@@ -24,9 +24,9 @@ class AccordionItemTitle extends React.Component {
         style={{ width: '100%' }}
         onMouseDown={click}
         onTouchStart={click}
-        tabIndex="-1"
-        role="button"
-        aria-pressed="true"
+        tabIndex='-1'
+        role='button'
+        aria-pressed='true'
       >
         <FlexView
           style={{
@@ -36,27 +36,27 @@ class AccordionItemTitle extends React.Component {
               minHeight: Math.floor(this.props.titleHeight - 1),
               maxHeight: Math.floor(this.props.titleHeight - 1),
               height: Math.floor(this.props.titleHeight - 1),
-              overflow: 'hidden',
+              overflow: 'hidden'
             },
-            ...this.props.style,
+            ...this.props.style
           }}
         >
           {React.Children.count(this.props.children) < 1 && (
             <FlexView
               style={{
-                justifyContent: 'space-between',
+                justifyContent: 'space-between'
               }}
             >
               <div style={{ paddingLeft: 10 }}>
                 {this.props.icon !== 'none' && (
-                  <Icon name={`${this.props.icon}${fill}`} type="system" width={16} height={16} />
+                  <Icon name={`${this.props.icon}${fill}`} type='system' width={16} height={16} />
                 )}
               </div>
               <div>
                 <h3>{this.props.title}</h3>
               </div>
               <div style={{ paddingRight: 15 }}>
-                <Icon name={arrow} type="functional" width={16} height={16} />
+                <Icon name={arrow} type='functional' width={16} height={16} />
               </div>
             </FlexView>
           )}
@@ -72,7 +72,7 @@ AccordionItemTitle.defaultProps = {
   titleHeight: 65,
   icon: 'none',
   isSelected: false,
-  systemName: 'AccordionItemTitle',
+  systemName: 'AccordionItemTitle'
 }
 AccordionItemTitle.propTypes = {
   /**
@@ -115,7 +115,7 @@ AccordionItemTitle.propTypes = {
     PropTypes.array,
     PropTypes.element,
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   /**
    * Changes behavor on the accordionTitle. If false the arrow to
@@ -123,7 +123,7 @@ AccordionItemTitle.propTypes = {
    * up if current item is selected and opened. The value will be
    * provided by the Accordion component. (System use only)
    */
-  multiSelect: PropTypes.bool,
+  multiSelect: PropTypes.bool
 }
 
 export default AccordionItemTitle
